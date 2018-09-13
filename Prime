@@ -1,0 +1,35 @@
+import math
+
+def is_prime(number):
+    k = math.ceil(math.sqrt(number)) + 1
+    for i in range(2, k+1):
+        if number % i == 0:
+            return False
+
+    return True
+
+
+
+def largest_prime(number):
+    #if is_prime(number):
+     #   return number
+
+    #print(k)
+    #print(type(k))
+    largest = 2
+
+    for i in range(3,math.ceil(math.sqrt(number))+2,2):
+        #print("hi")
+        while number%i == 0:
+            largest = i
+            number  = number/i
+
+        if number>2:
+            largest = number
+        #largest = number
+
+    return int(largest)
+
+
+
+print(largest_prime(600851475143))
